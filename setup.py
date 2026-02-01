@@ -63,5 +63,11 @@ setup(
         "optimum", 
         "optimum-intel",
     ],
-    python_requires=">=3.9"
+    python_requires=">=3.9",
+    entry_points={
+        "console_scripts": [
+            "run-server = whisper_live.scripts.run_server:main",
+            "run-client = whisper_live.scripts.run_client:main",
+        ]
+    },
 )

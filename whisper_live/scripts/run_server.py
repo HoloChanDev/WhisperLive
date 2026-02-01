@@ -1,7 +1,8 @@
 import argparse
 import os
 
-if __name__ == "__main__":
+
+def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--port', '-p',
                         type=int,
@@ -67,3 +68,7 @@ if __name__ == "__main__":
         max_connection_time=args.max_connection_time,
         cache_path=args.cache_path
     )
+
+
+if __name__ == "__main__":
+    main()

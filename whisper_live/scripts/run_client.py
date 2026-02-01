@@ -4,7 +4,7 @@ from whisper_live.client import TranscriptionClient
 import argparse
 
 
-if __name__ == '__main__':
+def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--port', '-p',
                           type=int,
@@ -82,3 +82,7 @@ if __name__ == '__main__':
             target_language=args.target_language,              # Target language for translation, e.g., "fr
         )
         client(f)
+
+
+if __name__ == "__main__":
+    main()

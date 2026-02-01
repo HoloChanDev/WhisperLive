@@ -1,0 +1,67 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "whisper_live"
+dynamic = ["version"]
+description = "A nearly-live implementation of OpenAI's Whisper."
+readme = "README.md"
+authors = [
+    {name = "Collabora Ltd", email = "vineet.suryan@collabora.com"}
+]
+urls = {Homepage = "https://github.com/collabora/WhisperLive"}
+license = {text = "MIT"}
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+requires-python = ">=3.9"
+dependencies = [
+    "PyAudio",
+    "faster-whisper==1.1.0",
+    "torch",
+    "torchaudio",
+    "websockets",
+    "onnxruntime==1.17.0",
+    "scipy",
+    "websocket-client",
+    "numba",
+    "openai-whisper==20240930",
+    "kaldialign",
+    "soundfile",
+    "tokenizers==0.20.3",
+    "librosa",
+    "numpy==1.26.4",
+    "openvino",
+    "openvino-genai",
+    "openvino-tokenizers",
+    "optimum",
+    "optimum-intel",
+]
+
+[project.scripts]
+run-server = "whisper_live.scripts.run_server:main"
+run-client = "whisper_live.scripts.run_client:main"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+exclude = [
+    "examples",
+    "Audio-Transcription-Chrome",
+    "Audio-Transcription-Firefox",
+    "requirements",
+    "whisper-finetuning"
+]
+
+[tool.setuptools.dynamic]
+version = {file = ["VERSION"]}
